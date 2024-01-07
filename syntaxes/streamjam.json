@@ -1,0 +1,27 @@
+{
+    "scopeName": "streamjam.embedded.injection",
+    "injectionSelector": "L:source.python",
+    "patterns": [
+      {
+        "include": "#code-block"
+      }
+    ],
+    "repository": {
+      "code-block": {
+        "begin": "(\"\"\"|''')@\n",
+        "end": "(\"\"\"|''')",
+        "name": "meta.embedded.streamjam",
+        "patterns": [
+            {
+                "include": "text.html.basic"
+            },
+            {
+                "include": "source.css"
+            },
+            {
+                "include": "source.js"
+            }
+        ]
+      }
+    }
+  }
