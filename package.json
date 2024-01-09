@@ -16,7 +16,7 @@
         "scopeName": "streamjam.embedded.injection",
         "injectTo": ["source.python"],
         "embeddedLanguages": {
-          "meta.embedded.streamjam.html": "svelte"
+          "meta.embedded.streamjam": "svelte"
         }
       }
     ]

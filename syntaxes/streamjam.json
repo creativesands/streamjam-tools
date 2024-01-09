@@ -1,27 +1,95 @@
 {
-    "scopeName": "streamjam.embedded.injection",
-    "injectionSelector": "L:source.python",
-    "patterns": [
-      {
-        "include": "#code-block"
-      }
-    ],
-    "repository": {
-      "code-block": {
-        "begin": "(\"\"\"|''')@\n",
-        "end": "(\"\"\"|''')",
-        "name": "meta.embedded.streamjam",
-        "patterns": [
+  "scopeName": "streamjam.embedded.injection",
+  "injectionSelector": "L:source.python",
+  "patterns": [
+    {
+      "include": "#layout-block"
+    },
+    {
+      "include": "#script-block"
+    },
+    {
+      "include": "#style-block"
+    }
+  ],
+  "repository": {
+    "layout-block": {
+      "begin": "(Layout):\\s*$",
+      "beginCaptures": {
+        "1": { "name": "entity.name.type.class.python" }
+      },
+      "while": "(^|\\G)(?!\\s*([\"~]{3,})\\s*$)",
+      "names": "meta.embedded.streamjam",
+      "patterns": [
+        {
+          "begin": "(^|\\G)(\\s*)(\"{3,}|~{3,})\\s*(?i:(@)(\\s+[^\"~]*)?$)",
+          "end": "(^|\\G)(\\2|\\s{0,3})(\\3)\\s*$",
+          "patterns": [
             {
-                "include": "text.html.basic"
-            },
-            {
-                "include": "source.css"
-            },
-            {
-                "include": "source.js"
+              "begin": "(^|\\G)(\\s*)(.*)",
+              "while": "(^|\\G)(?!\\s*([\"~]{3,})\\s*$)",
+              "contentName": "meta.embedded.streamjam.layout",
+              "patterns": [
+                {
+                  "include": "source.svelte"
+                }
+              ]
             }
-        ]
-      }
+          ]
+        }
+      ]
+    },
+    "script-block": {
+      "begin": "(Script):\\s*$",
+      "beginCaptures": {
+        "1": { "name": "entity.name.type.class.python" }
+      },
+      "while": "(^|\\G)(?!\\s*([\"~]{3,})\\s*$)",
+      "names": "meta.embedded.streamjam",
+      "patterns": [
+        {
+          "begin": "(^|\\G)(\\s*)(\"{3,}|~{3,})\\s*(?i:(@)(\\s+[^\"~]*)?$)",
+          "end": "(^|\\G)(\\2|\\s{0,3})(\\3)\\s*$",
+          "patterns": [
+            {
+              "begin": "(^|\\G)(\\s*)(.*)",
+              "while": "(^|\\G)(?!\\s*([\"~]{3,})\\s*$)",
+              "contentName": "meta.embedded.streamjam.script",
+              "patterns": [
+                {
+                  "include": "source.js"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "style-block": {
+      "begin": "(Style):\\s*$",
+      "beginCaptures": {
+        "1": { "name": "entity.name.type.class.python" }
+      },
+      "while": "(^|\\G)(?!\\s*([\"~]{3,})\\s*$)",
+      "names": "meta.embedded.streamjam",
+      "patterns": [
+        {
+          "begin": "(^|\\G)(\\s*)(\"{3,}|~{3,})\\s*(?i:(@)(\\s+[^\"~]*)?$)",
+          "end": "(^|\\G)(\\2|\\s{0,3})(\\3)\\s*$",
+          "patterns": [
+            {
+              "begin": "(^|\\G)(\\s*)(.*)",
+              "while": "(^|\\G)(?!\\s*([\"~]{3,})\\s*$)",
+              "contentName": "meta.embedded.streamjam.style",
+              "patterns": [
+                {
+                  "include": "source.css"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   }
+}
