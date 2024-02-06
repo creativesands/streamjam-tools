@@ -1,14 +1,25 @@
 {
   "name": "streamjam-tools",
+  "author": "Sandeep Sasi Kumar",
   "displayName": "StreamJam Tools",
-  "description": "StreamJam Framework Support",
+  "description": "StreamJam Extension with Language Server support for embedded Svelte.",
+  "publisher": "Creativesands",
+  "license": "MIT",
   "version": "0.0.1",
-  "engines": {
-    "vscode": "^1.85.0"
-  },
   "categories": [
     "Programming Languages"
   ],
+  "repository": {
+		"type": "git",
+		"url": "https://github.com/creativesands/streamjam-tools"
+	},
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "activationEvents": [
+		"onLanguage:python"
+	],
+	"main": "./client/out/extension",
   "contributes": {
     "grammars": [
       {
@@ -20,5 +31,19 @@
         }
       }
     ]
+  },
+  "scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -b",
+		"watch": "tsc -b -w",
+		"lint": "eslint ./client/src --ext .ts,.tsx",
+		"postinstall": "cd client && npm install && cd .."
+	},
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.86.0",
+    "typescript": "^5.3.3"
   }
 }

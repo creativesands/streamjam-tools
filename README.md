@@ -61,5 +61,19 @@ You can author your README using Visual Studio Code. Here are some useful editor
 
 * [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
 * [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+* [A guide to writing a language grammar (TextMate)](https://gist.github.com/Aerijo/b8c82d647db783187804e86fa0a604a1)
+* [Writing a TextMate Grammar](https://www.apeth.com/nonblog/stories/textmatebundle.html)
+
+## Notes
+
+This extension depends on a fork of Svelte's language-tools repository. Directly invoking Svelte's language server from within this extension would cause the LS to not launch when svelte's extension tries to invoke it. This is caused due to reregistering of commands by the two instances of the server. This fork renames these commands on the server.
+
+Language-tools is added as a git submodule.
+- `git submodule add https://github.com/creativesands/language-tools.git`
+- `git remote add upstream https://github.com/sveltejs/language-tools.git`
+- `git fetch upstream`
+- `git checkout main`
+- `git merge upstream/main` -or- `git rebase upstream/main`
+- `git push origin main`
 
 **Enjoy!**
