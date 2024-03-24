@@ -40,7 +40,7 @@
       ]
     },
     "svelte-block": {
-      "begin": "(Client):\\s*$",
+      "begin": "(UI):\\s*$",
       "beginCaptures": {
         "1": { "name": "entity.name.type.class.python" }
       },

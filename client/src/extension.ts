@@ -65,7 +65,7 @@ export function activate(context: ExtensionContext) {
 
 	function isSvelteInScope(document, position?, range?) {
 		let docText = document.getText();
-		const specialDocStringRegex = /class\s+Client:\s*?\n\s*"""@\s*([\s\S]*?)\s*"""/g;
+		const specialDocStringRegex = /class\s+UI:\s*?\n\s*"""@\s*([\s\S]*?)\s*"""/g;
 		let match = specialDocStringRegex.exec(docText);
 	
 		if (match) {
