@@ -1,6 +1,6 @@
 # StreamJam VSCode Extension
 
-![StreamJam Logo](streamjam-full-logo.svg)
+![StreamJam Logo](streamjam-full-logo.png)
 
 Provides intellisense when developing StreamJam components.
 
